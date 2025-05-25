@@ -1,0 +1,205 @@
+.main-container {
+  margin: 0 auto;
+  min-height: 80vh;
+  flex: 1;
+  max-width: 1500px;
+  padding: 25px 20px;
+}
+
+.main-container_iner {
+  display: flex;
+  flex-direction: column; /* Вертикальное выравнивание */
+  
+}
+
+
+.button-container-single {
+  display: flex; /* Используем Flexbox для выравнивания кнопок */
+  gap: 10px; /* Отступ между кнопками */
+  margin: 10px 0; /* Отступ сверху и снизу */
+  
+}
+
+.back-button,
+.back-basket {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: white;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid #007bff;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.back-button:hover,
+.back-basket:hover {
+  background-color: #63a8f1;
+  color: white;
+}
+
+.card {
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.item {
+  flex: 0 0 300px; /* Установите фиксированную ширину для блока с изображением */
+  padding: 20px;
+}
+
+.item-image {
+  width: 100%;
+  height: 300px; /* Начальная высота изображения */
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.item-title p {
+  margin: 5px 0;
+  font-size: 20px; /* Увеличение размера текста */
+  text-align: left;
+}
+
+.styled-button {
+  display: inline-block;
+  margin: 10px 0;
+  padding: 10px 20px;
+  background-color: white;
+  color: black;
+  text-align: center;
+  border: 2px solid #007bff;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+  cursor: pointer; /* Указатель при наведении */
+  width: 100%; /* Занимает всю ширину родительского элемента */
+  max-width: 200px; /* Максимальная ширина для кнопки */
+}
+
+.styled-button:hover {
+  background-color: #63a8f1;
+  color: white;
+}
+
+.rules-care {
+  flex: 1;
+  background-color: #f9f9f9;
+  padding: 20px;
+  font-size: 18px;
+  text-align: left;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.rules-care h2 {
+  margin-bottom: 15px;
+  font-size: 24px; /* Увеличение размера заголовка */
+  color: #333; /* Темный цвет для лучшей читабельности */
+}
+
+.rules-care p {
+  margin-bottom: 10px; /* Отступ между абзацами */
+  line-height: 1.6; /* Увеличим межстрочный интервал для лучшей читабельности */
+  color: #555; /* Серый цвет текста */
+}
+
+.rules-care strong {
+  color: #202020; /* Цвет для выделения заголовков условий */
+}
+
+/* Адаптация для 1440px */
+@media (max-width: 1440px) {
+  .main-container {
+    padding: 20px; /* Уменьшение внутренних отступов */
+  }
+
+  .item {
+    flex: 0 0 280px; /* Уменьшение ширины блока с изображением */
+  }
+
+  .item-title p {
+    font-size: 18px; /* Увеличение размера текста */
+  }
+
+  .styled-button {
+    padding: 12px 24px; /* Увеличение отступов */
+    font-size: 16px; /* Уменьшение внутренних отступов */
+  }
+
+  .rules-care h2 {
+    font-size: 22px; /* Уменьшение размера заголовка */
+  }
+}
+
+/* Адаптация для 1024px */
+@media (max-width: 1024px) {
+  .main-container {
+    padding: 15px; /* Уменьшение внутренних отступов */
+  }
+
+  .item {
+    flex: 0 0 250px; /* Уменьшение ширины блока с изображением */
+  }
+
+  .item-title p {
+    font-size: 16px; /* Увеличение размера текста */
+  }
+
+  .styled-button {
+    padding: 14px 28px; /* Увеличение отступов */
+    font-size: 15px; /* Уменьшение внутренних отступов */
+  }
+
+  .rules-care h2 {
+    font-size: 20px; /* Увеличение размера заголовка */
+  }
+}
+
+/* Адаптация для 880px */
+@media (max-width: 880px) {
+  .main-container {
+    padding: 10px; /* Уменьшение внутренних отступов */
+  }
+
+  .card {
+    flex-direction: column; /* Вертикальное выравнивание карточки */
+  }
+
+  .item {
+    flex: 1; /* Позволяем блоку с изображением занимать всю ширину */
+    padding: 10px; /* Уменьшение внутренних отступов */
+  }
+
+  .item-image {
+    object-fit: contain;
+    height: 300px; /* Увеличение высоты изображения */
+  }
+
+  .item-title p {
+    font-size: 18px; /* Увеличение размера текста */
+  }
+
+  .styled-button {
+    padding: 16px 30px; /* Дополнительное увеличение отступов */
+    font-size: 16px; /* Увеличение размера текста для удобства */
+    max-width: none; /* Уменьшение внутренних отступов */
+  }
+
+  .rules-care {
+    padding: 15px; /* Уменьшение внутренних отступов */
+  }
+
+  .rules-care h2 {
+    font-size: 18px; /* Увеличение размера заголовка */
+  }
+
+  .rules-care p {
+    font-size: 16px; /* Увеличение размера текста */
+  }
+}

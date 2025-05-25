@@ -1,0 +1,111 @@
+/* History.css */
+.history-container1 {
+  min-height: 80vh;
+  flex: 1;
+}
+
+.history-container {
+  text-align: left;
+  max-width: 1000px;
+  margin: 30px auto;
+  margin-bottom: 60px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Обертка для фото бонсая */
+.bonsai-images-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Уменьшено расстояние между изображениями */
+  margin: 20px 0; /* Увеличен отступ сверху и снизу */
+  flex-wrap: wrap;
+}
+
+.bonsai-image {
+  max-width: 100%; /* Изображения не будут превышать ширину контейнера */
+  height: auto; /* Сохраняем пропорции изображений */
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  max-height: 300px; /* Увеличена максимальная высота изображений */
+}
+
+/* Заголовок */
+.history-container h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.history-container p {
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* Адаптация для 1440px */
+@media (max-width: 1440px) {
+  .history-container {
+    padding: 15px;
+  }
+
+  .history-container h1 {
+    font-size: 22px;
+  }
+
+  .bonsai-image {
+    max-height: 250px; /* Увеличена максимальная высота для больших экранов */
+  }
+}
+
+/* Адаптация для 1024px */
+@media (max-width: 1024px) {
+  .history-container {
+    padding: 10px;
+  }
+
+  .history-container h1 {
+    font-size: 20px;
+  }
+
+  .history-container p {
+    font-size: 16px;
+  }
+
+  .bonsai-image {
+    max-height: 220px; /* Увеличена максимальная высота для средних экранов */
+  }
+}
+
+/* Адаптация для 880px */
+@media (max-width: 880px) {
+  .history-container {
+    padding: 10px; /* чуть больше отступов для удобства */
+  }
+
+  .history-container h1 {
+    font-size: 18px;
+  }
+
+  .history-container p {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .bonsai-images-wrapper {
+    gap: 10px; /* чуть больше расстояния между изображениями */
+    flex-direction: column; /* картинки в колонку */
+    align-items: center; /* по центру */
+  }
+
+  .bonsai-image {
+    width: 100%; /* занимают всю ширину контейнера */
+    max-width: 350px; /* но не шире 350px */
+    height: auto; /* высота по пропорциям */
+    max-height: none; /* убираем ограничение по высоте */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+}

@@ -1,0 +1,520 @@
+/* Основные стили */
+h1{
+    font-size: 40px;
+}
+a {
+  color: #1a1a1a;
+}
+
+.katalog {
+  padding: 0 0 60px 0;
+}
+
+.itemLink {
+  font-size: 25px;
+  text-decoration: none;
+}
+
+.itemLink:hover {
+  text-decoration: underline;
+}
+
+.main-inner {
+  margin: 0 250px;
+}
+
+.indent {
+  padding: 20px 0;
+}
+
+.header-indentation {
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgb(196, 194, 194);
+  margin: 0 0 20px 0;
+}
+
+.sorting-panel_inner {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center; /* Выравнивание по центру по вертикали */
+  justify-content: space-between; /* Распределение элементов по краям */
+  margin-bottom: 5px;
+  position: relative;
+}
+
+.sorting-container {
+  display: flex;
+  align-items: center; /* Выравнивание по центру по вертикали */
+  flex: 1; /* Занимает доступное пространство */
+  justify-content: center; /* Центрирование метода сортировки */
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.grid-elem {
+  background-color: #f0efef;
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.grid-elem:hover {
+  background-color: #ffffff;
+  transform: scale(1.05);
+}
+
+.item-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.product-item_heading {
+  margin-top: 8px;
+  display: flex; /* Используем Flexbox */
+  flex-direction: column; /* Вертикальное расположение элементов */
+  justify-content: space-between; /* Распределяем элементы по вертикали */
+  flex-grow: 1; /* Позволяет заголовку и цене занимать доступное пространство */
+}
+
+.item-price {
+  font-size: 20px;
+  color: #1a1a1a;
+  margin-top: auto; /* Двигаем цену вниз, чтобы она была на фиксированном месте */
+  margin-bottom: 10px; /* Отступ снизу для цены */
+}
+
+.button-style,
+.button-cancel,
+.filter-button {
+  margin: 10px 0;
+  padding: 12px 24px; /* Увеличенные размеры кнопки */
+  background-color: white;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid #007bff;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+  font-size: 18px; /* Увеличенный размер шрифта */
+  height: 60px; /* Установка одинаковой высоты */
+}
+
+.button-style:hover,
+.button-cancel:hover,
+.filter-button:hover {
+  background-color: #63a8f1;
+  color: white;
+}
+
+.sorting-select {
+  padding: 12px; /* Увеличенные размеры */
+  font-size: 18px; /* Увеличенный размер шрифта */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 0 10px 0 150px; /* Отступ между селектором и кнопками */
+  height: 60px; /* Установка одинаковой высоты */
+}
+
+.search-input {
+  padding: 12px; /* Увеличенные размеры */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-left: 5px;
+  font-size: 18px; /* Увеличенный размер шрифта */
+  width: 220px;
+  height: 35px; /* Установка одинаковой высоты */
+}
+
+/* Стили для элементов фильтрации */
+
+.price-input::-webkit-inner-spin-button,
+.price-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.filter-section {
+  position: relative;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Тусклый черный фон */
+  z-index: 9;
+}
+
+.filter-panel {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 1000px;
+  min-height: 300px;
+  padding: 40px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  z-index: 10;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.filter-item_container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.filter-item {
+  padding: 16px; /* Отступы */
+  border: 1px solid #ccc; /* Рамка */
+  border-radius: 8px; /* Скругление углов */
+  display: flex; /* Используем flex для выравнивания */
+  flex-direction: column; /* Вертикальное выравнивание */
+  height: 100%; /* Занимает всю высоту родительского элемента */
+  margin-left: 10px;
+}
+
+.filter-title {
+  text-align: left;
+  padding-bottom: 20px;
+  font-size: 20px;
+}
+
+.filter-header {
+  font-size: 20px;
+  text-align: left;
+  padding-bottom: 40px;
+}
+
+.filter-section.active .filter-panel {
+  display: block; /* Показываем панель при активном состоянии */
+}
+
+.filter-actions {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #ccc; /* Бордер сверху кнопок фильтрации */
+  padding-top: 40px; /* Отступ сверху */
+}
+
+.button-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 40px; /* Размер крестика */
+  cursor: pointer;
+  color: #333; /* Цвет крестика */
+}
+
+.button-close:hover {
+  color: red; /* Цвет при наведении */
+}
+
+/* Стили для элементов фильтрации */
+
+.price-filter_container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px; /* Отступ между элементами фильтрации */
+}
+
+.price-input {
+  padding: 12px; /* Увеличенные размеры */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100px; /* Ширина полей ввода цены */
+  font-size: 18px; /* Увеличенный размер шрифта */
+}
+
+.price-input-from,
+.price-input-to {
+  padding: 12px; /* Увеличенные размеры */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100px; /* Ширина полей ввода цены */
+  font-size: 18px; /* Увеличенный размер шрифта */
+  margin-left: 5px;
+}
+
+.price-input::-webkit-inner-spin-button,
+.price-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+@media (max-width: 1440px) {
+  .main-inner {
+    margin: 0 50px; /* Уменьшение отступов */
+  }
+
+  .grid-container {
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(300px, 1fr)
+    ); /* Уменьшение минимальной ширины элементов */
+  }
+
+  .header-indentation {
+    padding-bottom: 20px; /* Уменьшение отступа */
+  }
+
+  .sorting-panel_inner {
+    display: flex;
+    align-items: center; /* Выравнивание по центру по вертикали */
+    margin-bottom: 10px; /* Отступ снизу */
+  }
+
+  .sorting-container {
+    display: flex;
+    align-items: center; /* Выравнивание по центру по вертикали */
+  }
+
+  .sorting-select {
+    padding: 10px; /* Увеличенные размеры */
+    font-size: 16px; /* Уменьшенный размер шрифта */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px; /* Отступ между селектором и кнопками */
+    height: 60px; /* Установка одинаковой высоты */
+  }
+
+  .button-style,
+  .button-cancel,
+  .filter-button {
+    font-size: 16px; /* Уменьшение размера шрифта кнопок */
+    padding: 10px 20px; /* Уменьшение размеров кнопок */
+    height: 50px; /* Установка одинаковой высоты */
+    transition: none; /* Убираем эффект наведения */
+  }
+
+  .search-input {
+    padding: 10px; /* Увеличенные размеры */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-left: 10px;
+    font-size: 16px; /* Уменьшенный размер шрифта */
+    width: 190px; /* Уменьшение ширины поля поиска */
+    height: 30px; /* Установка одинаковой высоты */
+  }
+
+  .filter-panel {
+    min-width: 800px; /* Уменьшение минимальной ширины панели фильтров */
+  }
+
+  .filter-item {
+    margin-left: 5px; /* Уменьшение отступа между элементами фильтрации */
+  }
+
+  .price-input {
+    width: 80px; /* Уменьшение ширины полей ввода цены */
+  }
+
+  .grid-elem {
+    transition: none; /* Убираем эффект наведения */
+  }
+
+  .grid-elem:hover {
+    background-color: #f0efef; /* Убираем изменение цвета при наведении */
+    transform: none; /* Убираем приближение при наведении */
+  }
+}
+
+@media (max-width: 1024px) {
+  .main-inner {
+    margin: 0 20px; /* Уменьшение отступов */
+  }
+
+  .sorting-panel_inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Выравнивание элементов по краям */
+    margin-bottom: 5px;
+  }
+
+  .sorting-container {
+    margin-left: 10px; /* Уменьшение отступа от фильтров */
+    display: flex;
+    align-items: center; /* Выравнивание по центру по вертикали */
+  }
+
+  .sorting-select {
+    padding: 10px; /* Увеличенные размеры */
+    font-size: 16px; /* Увеличенный размер шрифта */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px; /* Отступ между селектором и кнопками */
+    height: 60px; /* Установка одинаковой высоты */
+  }
+
+  .button-style,
+  .button-cancel,
+  .filter-button {
+    font-size: 18px; /* Увеличенный размер шрифта кнопок */
+    padding: 12px 24px; /* Увеличенные размеры кнопок */
+    height: 60px; /* Установка одинаковой высоты */
+    margin-left: 10px; /* Добавляем небольшой отступ между кнопками */
+  }
+
+  .search-input {
+    padding: 14px; /* Увеличенные размеры */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-left: 10px;
+    font-size: 20px; /* Увеличенный размер шрифта */
+    width: 250px; /* Увеличение ширины поля поиска */
+    height: 32px; /* Установка одинаковой высоты */
+  }
+
+  .grid-container {
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(300px, 1fr)
+    ); /* Уменьшение минимальной ширины элементов */
+  }
+
+  .price-input {
+    width: 120px; /* Увеличение ширины полей ввода цены */
+    padding: 14px; /* Увеличенные размеры */
+    font-size: 20px; /* Увеличенный размер шрифта */
+  }
+
+  .price-input-from,
+  .price-input-to {
+    padding: 12px; /* Увеличенные размеры */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100px; /* Ширина полей ввода цены */
+    font-size: 18px; /* Увеличенный размер шрифта */
+    margin-left: 5px;
+  }
+
+  .filter-section {
+    display: flex;
+    flex-direction: column; /* Изменяем направление на вертикальное */
+  }
+
+  .price-filter_container {
+    margin-top: 10px; /* Добавляем отступ сверху */
+    display: flex; /* Используем flex для расположения элементов */
+    justify-content: space-between; /* Распределяем элементы по краям */
+  }
+
+  .filter-actions {
+    display: flex;
+    justify-content: space-between; /* Кнопки по краям */
+    margin-top: 10px; /* Добавляем отступ сверху */
+  }
+
+  .button-cancel {
+    margin-left: 10px; /* Добавляем отступ для кнопки отмены */
+  }
+
+  .sorting-panel_inner {
+    flex-direction: row; /* Сохраняем горизонтальное расположение */
+    justify-content: space-between; /* Убедитесь, что кнопки не пропадают */
+  }
+}
+
+@media (max-width: 880px) {
+  .main-inner {
+    margin: 0 10px; /* Уменьшение отступов */
+  }
+
+  .grid-container {
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(300px, 1fr)
+    ); /* Уменьшение минимальной ширины элементов */
+  }
+
+  .header-indentation {
+    padding-bottom: 15px; /* Уменьшение отступа */
+  }
+
+  .sorting-panel_inner {
+    flex-direction: row; /* Горизонтальное расположение элементов */
+    align-items: center; /* Выравнивание по центру по вертикали */
+    justify-content: flex-start; /* Выравнивание элементов по левому краю */
+    margin-bottom: 20px; /* Восстановление отступа снизу */
+  }
+
+  .sorting-select {
+    margin-left: 5px;
+    margin-right: 5px; /* Небольшой отступ между селектором и кнопкой фильтра */
+    width: auto; /* Убираем фиксированную ширину */
+    flex-grow: 1; /* Позволяем селектору занимать доступное пространство */
+  }
+
+  .button-style,
+  .button-cancel,
+  .filter-button {
+    margin-left: 0; /* Убираем отступ слева для кнопок */
+    width: auto; /* Убираем фиксированную ширину для кнопок */
+    flex-grow: 0; /* Кнопки не занимают дополнительное пространство */
+  }
+
+  .search-input {
+    display: none; /* Скрытие поисковой строки */
+  }
+
+  .filter-panel {
+    min-width: 100%; /* Увеличение минимальной ширины панели фильтров */
+    padding: 15px; /* Добавление внутреннего отступа для лучшего восприятия */
+    box-sizing: border-box; /* Учет отступов в общей ширине */
+    display: flex; /* Используем flex для выравнивания элементов */
+    flex-direction: column; /* Вертикальное расположение элементов */
+  }
+
+  .price-input {
+    width: 70px; /* Установка фиксированной ширины для полей ввода цены */
+    padding: 6px; /* Уменьшение внутреннего отступа */
+    font-size: 14px; /* Уменьшение размера шрифта */
+  }
+
+  .price-input-from,
+  .price-input-to {
+    width: 70px; /* Установка фиксированной ширины для полей ввода цены */
+    padding: 6px; /* Уменьшение внутреннего отступа */
+    font-size: 14px; /* Уменьшение размера шрифта */
+    margin-left: 5px; /* Небольшой отступ между полями */
+  }
+
+  .filter-actions {
+    flex-direction: column; /* Изменяем направление на вертикальное */
+    align-items: flex-start; /* Выравнивание кнопок по левому краю */
+    margin-top: 10px; /* Добавляем отступ сверху */
+  }
+
+  .close-button {
+    display: block; /* Убедитесь, что кнопка закрытия видима */
+    margin-top: 10px; /* Отступ сверху для кнопки закрытия */
+    align-self: flex-end; /* Выравнивание кнопки закрытия по правому краю */
+    font-size: 20px; /* Увеличение размера шрифта для лучшей видимости */
+    background: transparent; /* Прозрачный фон */
+    border: none; /* Без границы */
+    color: #333; /* Цвет текста */
+    cursor: pointer; /* Указатель при наведении */
+  }
+
+  .close-button:hover {
+    color: red; /* Цвет при наведении для кнопки закрытия */
+  }
+}

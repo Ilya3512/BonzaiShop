@@ -1,0 +1,105 @@
+.delivery-container1 {
+  min-height: 80vh;
+  flex: 1;
+}
+
+.delivery-container {
+  max-width: 1000px; /* Максимальная ширина контейнера */
+  margin: 30px auto; /* Центрирование контейнера */
+  padding: 20px; /* Внутренние отступы */
+  border: 1px solid #ccc; /* Рамка вокруг контейнера */
+  border-radius: 8px; /* Закругленные углы */
+  background-color: #f9f9f9; /* Цвет фона */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Тень для эффекта подъема */
+}
+
+.delivery-container h1 {
+  margin-bottom: 20px; /* Отступ снизу заголовка */
+  font-size: 24px; /* Размер шрифта заголовка */
+  text-align: center; /* Центрирование текста */
+}
+
+.delivery-container h2 {
+  margin-top: 20px; /* Отступ сверху для подзаголовков */
+  font-size: 20px; /* Размер шрифта подзаголовков */
+  color: #007bff; /* Цвет подзаголовков */
+}
+
+.delivery-container p {
+  line-height: 1.6; /* Межстрочный интервал для лучшей читаемости */
+  margin-bottom: 15px; /* Отступ снизу абзацев */
+}
+
+.delivery-container ul {
+  list-style-type: none;
+  padding-left: 20px; /* Отступ слева для списка */
+}
+
+.delivery-container li {
+  margin-bottom: 10px; /* Отступ между элементами списка */
+}
+
+/* Адаптация для 1440px */
+@media (max-width: 1440px) {
+  .delivery-container {
+    padding: 15px; /* Уменьшение внутренних отступов */
+  }
+
+  .delivery-container h1 {
+    font-size: 22px; /* Уменьшение размера заголовка */
+  }
+
+  .delivery-container h2 {
+    font-size: 18px; /* Уменьшение размера подзаголовков */
+  }
+}
+
+/* Адаптация для 1024px */
+@media (max-width: 1024px) {
+  .delivery-container {
+    padding: 10px; /* Уменьшение внутренних отступов */
+  }
+
+  .delivery-container h1 {
+    font-size: 20px; /* Уменьшение размера заголовка */
+  }
+
+  .delivery-container h2 {
+    font-size: 16px; /* Уменьшение размера подзаголовков */
+  }
+
+  .delivery-container p {
+    font-size: 16px;/* Уменьшение размера текста */
+  }
+
+  .delivery-container ul {
+    padding-left: 15px; /* Уменьшение отступа для списка */
+  }
+}
+
+/* Адаптация для 880px */
+@media (max-width: 880px) {
+  .delivery-container {
+    padding: 5px; /* Уменьшение внутренних отступов */
+  }
+
+  .delivery-container h1 {
+    font-size: 18px; /* Уменьшение размера заголовка */
+  }
+
+  .delivery-container h2 {
+    font-size: 14px; /* Уменьшение размера подзаголовков */
+  }
+
+  .delivery-container p {
+    font-size: 14px; /* Уменьшение размера текста */
+  }
+
+  .delivery-container ul {
+    padding-left: 10px; /* Уменьшение отступа для списка */
+  }
+
+  .delivery-container li {
+    margin-bottom: 5px; /* Уменьшение отступа между элементами списка */
+  }
+}

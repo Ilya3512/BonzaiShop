@@ -1,0 +1,191 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0; /* Начальная прозрачность */
+  visibility: hidden; /* Скрыть элемент */
+  transition: opacity 0.3s ease, visibility 0.3s ease; /* Переходы */
+}
+
+.modal-overlay.show {
+  opacity: 1; /* Полная непрозрачность */
+  visibility: visible; /* Показать элемент */
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  width: 800px; /* Ширина по умолчанию */
+  transform: translateY(-20px); /* Начальное положение */
+  transition: transform 0.3s ease; /* Переход для перемещения */
+}
+
+.modal-overlay.show .modal-content {
+  transform: translateY(0); /* Полное положение */
+}
+
+.order-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.order-form input {
+  margin-bottom: 20px; /* Увеличен отступ между инпутами */
+  padding: 20px;
+  border-radius: 5px;
+  font-size: 20px; /* Увеличен размер шрифта */
+}
+
+.order-form select {
+  margin-bottom: 20px; /* Увеличен отступ между селектом и другими элементами */
+  padding: 20px;
+  border-radius: 5px;
+  font-size: 20px; /* Размер шрифта для селекта */
+  border: 1px solid #ccc; /* Стандартная рамка */
+  background: url('data:image/svg+xml;utf8,<svg fill="gray" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>')
+    no-repeat right 15px center;
+  background-size: 16px 16px; /* Размер стрелки */
+  appearance: none; /* Убрать стандартный стиль */
+  transition: border-color 0.3s; /* Плавный переход цвета рамки */
+}
+
+.order-form select:focus {
+  border-color: #007bff; /* Цвет рамки при фокусе */
+}
+
+.error-message {
+  color: red; /* Цвет текста сообщения об ошибке */
+  margin-top: 5px; /* Отступ сверху для отделения от поля */
+  margin-bottom: 30px; /* Увеличен отступ снизу для визуального отделения */
+  font-size: 14px; /* Размер текста сообщения об ошибке */
+  line-height: 1.2; /* Высота строки для лучшей читаемости */
+  padding-left: 5px; /* Отступ слева для лучшей читаемости */
+  display: block; /* Обеспечивает, что сообщение будет отображаться на новой строке */
+}
+
+.error {
+  border: 1px solid red;
+}
+
+label.error {
+  text-align: center;
+  border: none;
+  margin-bottom: 15px;
+  color: rgb(0, 0, 0);
+}
+
+select.error {
+  border: 1px solid red; 
+  background-color: #ffe6e6;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-buttons button {
+  margin-left: 5px;
+  padding: 20px 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  background-color: white;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid #007bff;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.form-buttons button[type="submit"]:hover {
+  background-color: #63a8f1;
+  color: white;
+}
+
+.form-buttons button[type="button"]:hover {
+  background-color: #df3a3a;
+  color: white;
+}
+
+.form-buttons button:hover {
+  opacity: 0.9; /* Эффект при наведении */
+}
+
+/* Адаптация для 1440px */
+@media (max-width: 1440px) {
+  .modal-content {
+    width: 700px; /* Уменьшенная ширина для 1440px */
+  }
+
+  .order-form input {
+    font-size: 18px; /* Уменьшение размера шрифта */
+  }
+
+  .order-form select {
+    font-size: 18px; /* Уменьшение размера шрифта для селекта */
+  }
+
+  .form-buttons button {
+    font-size: 16px; /* Уменьшение размера шрифта для кнопок */
+  }
+}
+
+/* Адаптация для 1024px */
+@media (max-width: 1024px) {
+  .modal-content {
+    width: 600px; /* Уменьшенная ширина для 1024px */
+  }
+
+  .order-form input {
+    font-size: 16px; /* Уменьшение размера шрифта */
+  }
+
+  .order-form select {
+    font-size: 16px; /* Уменьшение размера шрифта для селекта */
+  }
+
+  .form-buttons button {
+    font-size: 16px; /* Уменьшение размера шрифта для кнопок */
+  }
+}
+
+/* Адаптация для 880px */
+@media (max-width: 880px) {
+  .modal-content {
+    width: 90%; /* Ширина модального окна на малых экранах */
+    padding: 20px; /* Уменьшение внутреннего отступа */
+  }
+
+  .order-form input {
+    font-size: 16px; /* Уменьшение размера шрифта */
+    padding: 15px; /* Уменьшение внутреннего отступа */
+  }
+
+  .order-form select {
+    font-size: 16px; /* Уменьшение размера шрифта для селекта */
+    padding: 15px; /* Уменьшение внутреннего отступа для селекта */
+  }
+
+  .form-buttons {
+    flex-direction: column; /* Вертикальное расположение кнопок */
+  }
+
+  .form-buttons button {
+    margin: 5px 0; /* Уменьшение отступа между кнопками */
+    width: 100%; /* Кнопки занимают всю ширину */
+    padding: 15px; /* Уменьшение внутреннего отступа для кнопок */
+    font-size: 16px; /* Уменьшение размера шрифта для кнопок */
+  }
+}

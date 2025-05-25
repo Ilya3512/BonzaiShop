@@ -1,0 +1,254 @@
+.header-container {
+  padding-bottom: 120px;
+}
+
+.header {
+  margin-bottom: 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgb(248, 248, 248);
+  transition: transform 0.3s ease;
+  z-index: 8;
+}
+
+.header.hide {
+  transform: translateY(-100%);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Выровнено по краям */
+  margin: 0px 300px 0px 300px;
+}
+
+.menu {
+  display: flex; /* Показываем меню по умолчанию для экранов выше 1024px */
+  flex-direction: row; /* Горизонтальное расположение элементов */
+}
+
+.menu.open {
+  display: flex; /* Показываем меню при открытии */
+  flex-direction: column; /* Вертикальное расположение элементов */
+  position: fixed; /* Фиксируем меню */
+  top: 0;
+  left: 0; /* Выравниваем по левому краю */
+  width: 100%; /* Ширина меню на весь экран */
+  height: 100%; /* Высота на весь экран */
+  background-color: rgb(248, 248, 248);
+  z-index: 999;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3); /* Тень для меню */
+  overflow-y: auto; /* Прокрутка при необходимости */
+}
+
+.menu_item {
+  margin: 10px 0; /* Отступы для элементов меню */
+  text-align: left; /* Выравнивание текста влево */
+}
+
+.close-menu {
+  display: none; /* Скрываем кнопку закрытия по умолчанию */
+  position: absolute;
+  top: 20px; /* Расположение сверху */
+  right: 20px; /* Расположение справа */
+  font-size: 30px; /* Размер шрифта */
+  background: none; /* Без фона */
+  border: none; /* Без границы */
+  cursor: pointer; /* Курсор в виде указателя */
+  color: #5e5c5c; /* Цвет кнопки */
+  z-index: 1001; /* Убедитесь, что кнопка выше других элементов */
+}
+
+.menu .menu_item {
+  margin: 0 15px; /* Отступы для элементов меню */
+}
+
+.menu .menu_item a {
+  text-decoration: none; /* Убираем подчеркивание у ссылок */
+  color: #5e5c5c; /* Цвет текста */
+  font-size: 20px; /* Размер шрифта */
+  display: block; /* Делаем ссылку блочным элементом для удобства клика */
+  padding: 10px 0; /* Отступы для удобства клика */
+}
+
+.menu .menu_item a.active,
+.menu .menu_item a:hover {
+  color: rgb(0, 0, 0); /* Подсветка активной вкладки и при наведении */
+}
+
+.basket_item a {
+  color: #5e5c5c; /* Цвет текста для корзины */
+  text-decoration: none; /* Убираем подчеркивание */
+  padding: 10px; /* Отступы для корзины */
+}
+
+.basket_item a:hover {
+  color: rgb(0, 0, 0); /* Подсветка корзины при наведении */
+}
+
+.logo_item {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.logo {
+  margin-top: 5px;
+  border-radius: 5px;
+  width: 80px;
+  height: auto;
+}
+
+.basket-count {
+  background-color: red;
+  color: white;
+  border-radius: 100%;
+  padding: 2px 6px;
+}
+
+.burger {
+  display: none; /* Скрываем бургер-меню по умолчанию */
+  font-size: 24px;
+  cursor: pointer;
+}
+
+nav a {
+  color: #5e5c5c;
+  margin: 0 15px;
+  text-decoration: none;
+  font-size: 20px;
+  line-height: 18px;
+}
+
+nav:hover {
+  background-color: rgb(255, 255, 255);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+@media (max-width: 1440px) {
+  .container {
+    margin: 0;
+    padding: 10px 30px;
+  }
+
+  .menu {
+    padding: 0;
+  }
+
+  .menu .menu_item {
+    padding: 10px 0; /* Добавляем отступы для элементов меню */
+  }
+
+  .basket_item {
+    padding: 10px 20px; /* Отступы для корзины */
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    margin: 0;
+    padding: 10px 30px;
+  }
+  .logo_item {
+    margin-left: 130px;
+    margin-right: 10px;
+  }
+  .menu {
+    display: none; /* Скрываем меню по умолчанию на меньших экранах */
+  }
+
+  .menu.open {
+    display: flex; /* Показываем меню при открытии */
+  }
+
+  .burger {
+    display: block; /* Показываем бургер-меню на меньших экранах */
+  }
+
+  .close-menu {
+    display: block; /* Показываем кнопку закрытия только в бургер-меню */
+  }
+
+  .menu .menu_item {
+    padding: 10px 20px; /* Увеличиваем отступы между элементами для удобства */
+    border-bottom: 1px solid #ccc; /* Нижняя граница только в бургер-меню */
+  }
+
+  .basket_item {
+    margin-left: 0; /* Убираем отступ для корзины */
+    padding: 10px; /* Добавляем отступ для корзины */
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    margin: 0; /* Убираем отступы для контейнера */
+    padding: 10px 15px; /* Уменьшаем отступы для меньших экранов */
+  }
+
+  .header {
+    padding: 10px; /* Уменьшаем отступы в заголовке */
+  }
+
+  .menu {
+    display: none; /* Скрываем меню по умолчанию на меньших экранах */
+  }
+
+  .menu.open {
+    display: flex; /* Показываем меню при открытии */
+    flex-direction: column; /* Вертикальное расположение элементов */
+    padding: 20px; /* Добавляем отступы */
+    position: fixed; /* Фиксируем меню */
+    top: 0;
+    left: 0; /* Выравниваем по левому краю */
+    width: 100%; /* Ширина меню на весь экран */
+    height: 100%; /* Высота на весь экран */
+    background-color: rgb(248, 248, 248);
+    z-index: 999;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3); /* Тень для меню */
+    overflow-y: auto; /* Прокрутка при необходимости */
+  }
+
+  .menu .menu_item {
+    padding: 10px 0; /* Увеличиваем отступы между элементами для удобства */
+    border-bottom: 1px solid #ccc; /* Нижняя граница только в бургер-меню */
+    text-align: left; /* Выравнивание текста влево */
+  }
+
+  .basket_item {
+    margin-left: 0; /* Убираем отступ для корзины */
+    padding: 5px; /* Уменьшаем отступ для корзины */
+  }
+
+  .close-menu {
+    display: block; /* Показываем кнопку закрытия только в бургер-меню */
+    position: absolute;
+    top: 20px; /* Расположение сверху */
+    right: 20px; /* Расположение справа */
+    font-size: 30px; /* Размер шрифта */
+    background: none; /* Без фона */
+    border: none; /* Без границы */
+    cursor: pointer; /* Курсор в виде указателя */
+    color: #5e5c5c; /* Цвет кнопки */
+    z-index: 1001; /* Убедитесь, что кнопка выше других элементов */
+  }
+
+  .logo_item {
+    margin-left: 100px; /* Уменьшаем отступы для логотипа */
+    margin-right: 10px; /* Уменьшаем отступы для логотипа */
+  }
+
+  .logo {
+    width: 70px; /* Уменьшаем размер логотипа */
+    height: auto;
+  }
+
+  .burger {
+    display: block; /* Показываем бургер-меню на меньших экранах */
+  }
+
+  .basket-count {
+    padding: 2px 4px; /* Уменьшаем отступы для счетчика корзины */
+  }
+}

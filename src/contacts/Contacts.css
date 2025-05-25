@@ -1,0 +1,93 @@
+.contacts-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh; /* Устанавливаем минимальную высоту для страницы */
+  flex: 1; /* Позволяет контейнеру занимать все доступное пространство */
+}
+
+.contacts-container {
+  max-width: 800px; /* Максимальная ширина контейнера */
+  margin: 20px auto; /* Центрирование контейнера */
+  margin-top: 30px;
+  padding: 20px; /* Внутренние отступы */
+  border: 1px solid #ccc; /* Рамка вокруг контейнера */
+  border-radius: 8px; /* Закругленные углы */
+  background-color: #f9f9f9; /* Цвет фона */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Тень для эффекта подъема */
+}
+
+.contacts-container h1 {
+  margin-bottom: 20px; /* Отступ снизу заголовка */
+  font-size: 24px; /* Размер шрифта заголовка */
+  text-align: center; /* Центрирование текста */
+}
+
+.contacts-container p {
+  line-height: 1.6; /* Межстрочный интервал для лучшей читаемости */
+  margin-bottom: 15px; /* Отступ снизу абзацев */
+}
+
+.contacts-container ul {
+  list-style-type: none;
+  padding-left: 20px; 
+}
+
+.contacts-container li {
+  margin-bottom: 10px;
+}
+
+/* Адаптация для 1440px */
+@media (max-width: 1440px) {
+  .contacts-container {
+    padding: 15px; /* Уменьшение внутренних отступов */
+  }
+
+  .contacts-container h1 {
+    font-size: 22px; /* Уменьшение размера заголовка */
+  }
+}
+
+/* Адаптация для 1024px */
+@media (max-width: 1024px) {
+  .contacts-container {
+    padding: 10px; /* Уменьшение внутренних отступов */
+  }
+
+  .contacts-container h1 {
+    font-size: 20px; /* Уменьшение размера заголовка */
+  }
+
+  .contacts-container p {
+    font-size: 16px; /* Уменьшение размера текста */
+  }
+
+  .contacts-container ul {
+    font-size: 16px;
+    padding-left: 15px; /* Уменьшение отступа для списка */
+  }
+}
+
+/* Адаптация для 880px */
+@media (max-width: 880px) {
+  .contacts-container {
+    padding: 5px; /* Уменьшение внутренних отступов */
+  }
+
+  .contacts-container h1 {
+    font-size: 18px; /* Уменьшение размера заголовка */
+  }
+
+  .contacts-container p {
+    font-size: 16px; /* Уменьшение размера текста */
+  }
+
+  .contacts-container ul {
+    
+    font-size: 16px;
+    padding-left: 10px; /* Уменьшение отступа для списка */
+  }
+
+  .contacts-container li {
+    margin-bottom: 5px; /* Уменьшение отступа между элементами списка */
+  }
+}

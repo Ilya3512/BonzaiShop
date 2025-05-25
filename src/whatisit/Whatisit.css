@@ -1,0 +1,174 @@
+.chat-page {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.chat-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 60px;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  background-color: #f0f0f0;
+  width: 90%;
+  box-sizing: border-box;
+}
+
+.chat-container h1 {
+  margin-bottom: 30px;
+  font-weight: 700;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.chat-messages {
+  min-height: 400px;
+  max-height: 700px;
+  overflow-y: auto;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.message {
+  margin-bottom: 15px;
+  max-width: 70%;
+  padding: 15px;
+  border-radius: 15px;
+  word-wrap: break-word;
+  display: inline-block;
+  font-size: 1rem;
+}
+
+.message.user {
+  background-color: #b1e5fc;
+  color: #000;
+  align-self: flex-end;
+}
+
+.message.bot {
+  background-color: #e6e6e6;
+  color: #000;
+  align-self: flex-start;
+}
+
+.attachment {
+  max-width: 100%;
+  max-height: 300px;
+  width: auto;
+  height: auto;
+  border-radius: 15px;
+  margin-top: 10px;
+}
+
+.similar-images {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.similar-image {
+  max-width: 100%;
+  max-height: 300px;
+  margin-right: 10px;
+  margin-top: 10px;
+  border-radius: 15px;
+}
+
+/* Контейнер для кнопок и выбора файла */
+.input-container {
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px;
+  margin-top: 15px;
+  width: 100%;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+/* Поле выбора файла */
+.file-input {
+  flex: 1 1 180px;
+  max-width: 300px;
+  padding: 12px 15px;
+  border: 2px solid #007bff;
+  border-radius: 8px;
+  background-color: white;
+  color: black;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  text-align: center;
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.file-input:hover {
+  background-color: #63a8f1;
+  color: white;
+}
+
+/* Кнопка отправки */
+.send-button {
+  flex: 0 1 120px; /* не растёт, базовая ширина 120px */
+  padding: 12px 20px;
+  border: 2px solid #007bff;
+  border-radius: 8px;
+  background-color: white;
+  color: black;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+.send-button:hover {
+  background-color: #63a8f1;
+  color: white;
+}
+
+/* Адаптивность для экранов до 660px */
+@media (max-width: 660px) {
+  .chat-page {
+    height: 100vh; /* Устанавливаем высоту на 100% высоты экрана */
+    width: 100%; /* Устанавливаем ширину на 100% */
+    margin: 0; /* Убираем отступы */
+    padding: 0; /* Убираем внутренние отступы */
+  }
+
+  .chat-container {
+    width: 100%; /* Занимает всю ширину экрана */
+    height: 100%; /* Занимает всю высоту экрана */
+    padding: 10px; /* Уменьшаем отступы для лучшего использования пространства */
+    box-shadow: none; /* Убираем тень для более простого дизайна */
+  }
+
+  .chat-container h1 {
+    font-size: 1.4rem; /* Уменьшение размера заголовка */
+  }
+
+  .chat-messages {
+    max-height: calc(
+      100vh - 150px
+    ); /* Устанавливаем максимальную высоту для сообщений */
+    overflow-y: auto; /* Добавляем прокрутку для области сообщений */
+  }
+
+  .file-input,
+  .send-button {
+    width: 100%; /* Кнопки занимают всю ширину */
+  }
+}
