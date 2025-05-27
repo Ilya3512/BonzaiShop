@@ -70,17 +70,20 @@ function Basket() {
       const formattedDeliveryDate = deliveryDate.toISOString().split("T")[0]; // Форматируем дату в формате YYYY-MM-DD
 
       // 1. Отправляем email через backend
-      const emailResponse = await fetch("http://localhost:5000/send-email", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...formData,
-          cartItems: formattedCartItems,
-          totalAmount: totalAmountValue, // Добавляем сумму заказа
-          deliveryMethod: deliveryMethod, // Добавляем способ доставки
-          deliveryDate: formattedDeliveryDate, // Передаем дату доставки
-        }),
-      });
+      const emailResponse = await fetch(
+        "https://bonzaishop-server.onrender.com/send-email",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            ...formData,
+            cartItems: formattedCartItems,
+            totalAmount: totalAmountValue, // Добавляем сумму заказа
+            deliveryMethod: deliveryMethod, // Добавляем способ доставки
+            deliveryDate: formattedDeliveryDate, // Передаем дату доставки
+          }),
+        }
+      );
 
       if (!emailResponse.ok) {
         throw new Error("Ошибка при отправке письма");
@@ -93,7 +96,7 @@ function Basket() {
           if (itemToUpdate) {
             console.log(`Обновляем товар: ${itemToUpdate.id}, статус: false`);
             const response = await axios.put(
-              `http://localhost:5000/plants/${itemToUpdate.id}`,
+              `https://bonzaishop-server.onrender.com/plants/${itemToUpdate.id}`,
               { status: false }
             );
             console.log("Ответ от сервера:", response.data);
@@ -173,9 +176,9 @@ function Basket() {
               value={deliveryMethod}
               onChange={(e) => setDeliveryMethod(e.target.value)}
             >
-              <option value="Сourier">Курьерская доставка (300 ₽)</option>
-              <option value="Pickup">Самовывоз (бесплатно)</option>
-              <option value="Postal">Почта (200 ₽)</option>
+              <option value="courier">Курьерская доставка (300 ₽)</option>
+              <option value="pickup">Самовывоз (бесплатно)</option>
+              <option value="postal">Почта (200 ₽)</option>
             </select>
           </div>
 
