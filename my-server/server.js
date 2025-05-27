@@ -228,7 +228,7 @@ app.post("/send-email", async (req, res) => {
   }
 });
 
-// Запуск сервера
-app.listen(port, () => {
-  console.log(`Сервер запущен на http://localhost:${port}`);
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Сервер запущен на http://0.0.0.0:${PORT}`);
 });
