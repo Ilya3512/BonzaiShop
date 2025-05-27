@@ -6,19 +6,19 @@ const multer = require("multer");
 const fs = require("fs");
 const axios = require("axios");
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000; // Используем переменную окружения
 
 // Настройка CORS и парсинга JSON
 app.use(cors());
 app.use(express.json());
 
-// Подключение к базе данных PostgreSQL
+// Подключение к базе данных PostgreSQL с использованием переменных окружения
 const pool = new Pool({
-  user: "postgres",
-  host: "localhost",
-  database: "plants_db",
-  password: "123",
-  port: 5432,
+  user: process.env.DB_USER || "postgres",
+  host: process.env.DB_HOST || "localhost",
+  database: process.env.DB_NAME || "plants_db",
+  password: process.env.DB_PASSWORD || "123",
+  port: process.env.DB_PORT || 5432,
 });
 
 // Логирование всех запросов
@@ -106,7 +106,7 @@ app.post("/identify-plant", upload.single("image"), async (req, res) => {
       },
       {
         headers: {
-          "Api-Key": "2Swg0n0tyE7zbbW5FWNJbfqCgZipYu866l8PN43OSfrsq27O1C",
+          "Api-Key": process.env.PLANT_ID_API_KEY, // Используем переменную окружения
           "Content-Type": "application/json",
         },
       }
@@ -139,8 +139,8 @@ const transporter = nodemailer.createTransport({
   port: 465,
   secure: true,
   auth: {
-    user: "fireki123321@mail.ru",
-    pass: "DBBtU2TNw6nBrDumpQ8L",
+    user: process.env.EMAIL_USER, // Используем переменную окружения
+    pass: process.env.EMAIL_PASSWORD, // Используем переменную окружения
   },
   logger: true,
   debug: true,
@@ -158,25 +158,23 @@ app.post("/send-email", async (req, res) => {
     cartItems,
     totalAmount,
     deliveryDate,
-    transactionId, // если передаете номер транзакции
+    transactionId,
   } = req.body;
 
   const itemsText = cartItems
     .map((item) => `${item.name}: ${item.quantity} шт. по ${item.price} руб. `)
     .join("\n");
 
-  // Начинаем транзакцию, чтобы сначала сохранить заказ, а потом отправить письмо
   const client = await pool.connect();
 
   try {
     await client.query("BEGIN");
 
-    // Вставляем заказ в базу
     const insertQuery = `
       INSERT INTO orders
         (fullName, email, phone, address, deliveryMethod, cartItems, totalAmount, deliveryDate, orderStatus, transactionId)
       VALUES
-        (\$1, \$2, \$3, \$4, \$5, \$6::json, \$7, \$8, 'в обработке', \$9)
+        (\\$1, \\$2, \\$3, \\$4, \\$5, \\$6::json, \\$7, \\$8, 'в обработке', \\$9)
       RETURNING id
     `;
     const insertValues = [
@@ -188,15 +186,14 @@ app.post("/send-email", async (req, res) => {
       JSON.stringify(cartItems),
       totalAmount,
       deliveryDate,
-      transactionId || "", // если нет, можно пустую строку
+      transactionId || "",
     ];
 
     const result = await client.query(insertQuery, insertValues);
     const orderId = result.rows[0].id;
 
-    // Формируем письмо с номером заказа из базы
     const mailOptions = {
-      from: "fireki123321@mail.ru",
+      from: process.env.EMAIL_USER, // Используем переменную окружения
       to: email,
       subject: `Подтверждение вашего заказа №${orderId}`,
       text:
@@ -209,7 +206,7 @@ app.post("/send-email", async (req, res) => {
         `${address}\n\n` +
         `Способ доставки: ${deliveryMethod}\n` +
         `Ожидаемая дата доставки: ${deliveryDate}\n\n` +
-        `Если у вас есть вопросы, не стесняйтесь обращаться к нам по телефону +7 (918) 35-10-789 или по электронной почте fireki123321@mail.ru.\n\n` +
+        `Если у вас есть вопросы, не стесняйтесь обращаться к нам по телефону +7 (918) 35-10-789 или по электронной почте ${process.env.EMAIL_USER}.\n\n` +
         `Спасибо за ваш выбор!\n` +
         `С уважением,\n` +
         `Bonzaishop.ru`,
