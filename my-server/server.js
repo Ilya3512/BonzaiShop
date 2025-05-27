@@ -14,10 +14,10 @@ app.use(express.json());
 
 // Подключение к базе данных PostgreSQL с использованием переменных окружения
 const pool = new Pool({
-  user: process.env.DB_USER || "postgres",
-  host: process.env.DB_HOST || "localhost",
-  database: process.env.DB_NAME || "plants_db",
-  password: process.env.DB_PASSWORD || "123",
+  user: process.env.DB_USER || "postgres1",
+  host: process.env.DB_HOST || "dpg-d0qtq42dbo4c73cdud2g-a",
+  database: process.env.DB_NAME || "plants_db_3ch8",
+  password: process.env.DB_PASSWORD || "qSZkyIC63LaSVP8rHGa5xI6LDiB5Jcvz",
   port: process.env.DB_PORT || 5432,
 });
 
