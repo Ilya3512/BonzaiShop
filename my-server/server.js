@@ -139,8 +139,8 @@ const transporter = nodemailer.createTransport({
   port: 465,
   secure: true,
   auth: {
-    user: process.env.EMAIL_USER, // Используем переменную окружения
-    pass: process.env.EMAIL_PASSWORD, // Используем переменную окружения
+    user: "fireki123321@mail.ru",
+    pass: "DBBtU2TNw6nBrDumpQ8L",
   },
   logger: true,
   debug: true,
@@ -193,7 +193,7 @@ app.post("/send-email", async (req, res) => {
     const orderId = result.rows[0].id;
 
     const mailOptions = {
-      from: process.env.EMAIL_USER, // Используем переменную окружения
+      from: "fireki123321@mail.ru", 
       to: email,
       subject: `Подтверждение вашего заказа №${orderId}`,
       text:
