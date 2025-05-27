@@ -106,7 +106,7 @@ app.post("/identify-plant", upload.single("image"), async (req, res) => {
       },
       {
         headers: {
-          "Api-Key": "2Swg0n0tyE7zbbW5FWNJbfqCgZipYu866l8PN43OSfrsq27O1C", // Используем переменную окружения
+          "Api-Key": "2Swg0n0tyE7zbbW5FWNJbfqCgZipYu866l8PN43OSfrsq27O1C",
           "Content-Type": "application/json",
         },
       }
