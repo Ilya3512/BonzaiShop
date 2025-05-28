@@ -4,8 +4,6 @@ import { NavLink, Outlet } from "react-router-dom";
 import { useCart } from "../../basket/CartContext";
 import Footer from "../Footer/Footer";
 
-
-
 function MainLayout() {
   const { cartItems } = useCart();
   const itemCount = cartItems.length;
@@ -63,7 +61,13 @@ function MainLayout() {
               </div>
             </div>
             <div className="basket_item">
-              <NavLink to="basket">Корзина</NavLink>
+              <NavLink to="basket">
+                <img
+                  src="/logo/Cart.png"
+                  alt="Корзина"
+                  className="basket-icon"
+                />
+              </NavLink>
               {itemCount > 0 && (
                 <span className="basket-count">{itemCount}</span>
               )}

@@ -71,7 +71,7 @@
 .amount-items {
   display: flex;
   justify-content: space-between;
-  align-items:center; 
+  align-items: center;
   margin: 0 auto;
   max-width: 1300px;
   padding: 25px 20px;
@@ -93,12 +93,12 @@
 }
 
 .checkout-button {
-  font-size: 15px;
-  height: 60px; /* Уменьшаем высоту кнопки для меньших экранов */
-  width: 100%; /* Задаем ширину 100% для адаптивности */
+  font-size: 14px; /* Убедитесь, что размер шрифта не слишком большой */
+  height: 45px; /* Установите фиксированную высоту */
+  width: 100%; /* Ширина кнопки 100% для мобильных */
   max-width: 300px; /* Максимальная ширина кнопки */
   margin: 10px 0;
-  padding: 10px 20px;
+  padding: 10px; /* Убедитесь, что внутренние отступы не слишком большие */
   background-color: white;
   color: black;
   text-align: center;
@@ -107,6 +107,7 @@
   border-radius: 5px;
   font-weight: bold;
   transition: background-color 0.3s, color 0.3s;
+  box-sizing: border-box; /* Убедитесь, что размеры учитывают внутренние отступы и границы */
 }
 
 .checkout-button:hover {
@@ -251,5 +252,100 @@
   .delivery-method select {
     font-size: 12px; /* Уменьшение размера шрифта для селектора */
     padding: 6px; /* Уменьшение внутренних отступов */
+  }
+}
+
+@media (max-width: 375px) {
+  .basket-container {
+    padding: 15px; /* Уменьшаем внутренние отступы */
+    margin-bottom: 30px; /* Уменьшаем нижний отступ */
+  }
+
+  .basket-item {
+    flex-direction: column; /* Вертикальное расположение элементов */
+    align-items: center; /* Центрируем элементы */
+    padding: 10px; /* Уменьшаем внутренние отступы */
+  }
+
+  .basket-item-image {
+    width: 100%; /* Задаем ширину 100% для изображения */
+    height: auto; /* Автоматическая высота для сохранения пропорций */
+    margin-bottom: 10px; /* Отступ снизу */
+  }
+
+  .item-title,
+  .item-quantity {
+    font-size: 20px; /* Уменьшаем размер шрифта */
+  }
+
+  .checkout-button {
+    font-size: 12px; /* Уменьшите размер шрифта для маленьких экранов */
+    height: 40px; /* Уменьшите высоту кнопки */
+    padding: 8px; /* Уменьшите внутренние отступы */
+  }
+
+  .remove-button,
+  .clear-cart-button {
+    width: 100%; /* Ширина кнопок 100% для мобильных */
+    padding: 10px; /* Увеличение внутренних отступов для удобства */
+  }
+
+  .amount {
+    font-size: 18px; /* Уменьшаем размер текста для суммы */
+  }
+
+  .delivery-method {
+    font-size: 14px; /* Уменьшаем размер текста для способов доставки */
+  }
+
+  .delivery-method select {
+    font-size: 12px; /* Уменьшаем размер шрифта для селектора */
+    padding: 6px; /* Уменьшаем внутренние отступы */
+  }
+}
+
+@media (max-width: 320px) {
+  .basket-container {
+    padding: 10px; /* Уменьшаем внутренние отступы еще больше */
+    margin-bottom: 20px; /* Уменьшаем нижний отступ */
+  }
+
+  .basket-item {
+    padding: 8px; /* Уменьшаем внутренние отступы */
+  }
+
+  .basket-item-image {
+    width: 100%; /* Задаем ширину 100% для изображения */
+    height: auto; /* Автоматическая высота для сохранения пропорций */
+  }
+
+  .item-title,
+  .item-quantity {
+    font-size: 18px; /* Уменьшаем размер шрифта */
+  }
+
+  .checkout-button {
+    font-size: 10px; /* Еще меньше размер шрифта для самых маленьких экранов */
+    height: 45px; /* Уменьшите высоту кнопки */
+    padding: 6px; /* Уменьшите внутренние отступы */
+  }
+
+  .remove-button,
+  .clear-cart-button {
+    width: 100%; /* Ширина кнопок 100% для мобильных */
+    padding: 8px; /* Увеличение внутренних отступов для удобства */
+  }
+
+  .amount {
+    font-size: 16px; /* Уменьшаем размер текста для суммы */
+  }
+
+  .delivery-method {
+    font-size: 12px; /* Уменьшаем размер текста для способов доставки */
+  }
+
+  .delivery-method select {
+    font-size: 10px; /* Уменьшаем размер шрифта для селектора */
+    padding: 5px; /* Уменьшаем внутренние отступы */
   }
 }

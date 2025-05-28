@@ -86,7 +86,6 @@ const SingleItem = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };

@@ -58,7 +58,7 @@
   border: none; /* Без границы */
   cursor: pointer; /* Курсор в виде указателя */
   color: #5e5c5c; /* Цвет кнопки */
-  z-index: 1001; /* Убедитесь, что кнопка выше других элементов */
+  z-index: 1001; /* Убедитесь, что кнопка выше други х элементов */
 }
 
 .menu .menu_item {
@@ -99,12 +99,30 @@
   width: 80px;
   height: auto;
 }
+.basket_item {
+  display: flex; /* Используем Flexbox */
+  align-items: center; /* Центрируем по вертикали */
+  margin-left: 0; /* Убираем отступ для корзины */
+  padding: 10px; /* Добавляем отступ для корзины */
+  background-color: transparent; /* Прозрачный фон */
+}
+.basket_item a {
+  margin-right: 0px;
+}
+.basket-icon {
+  background-color: transparent;
+  width: 40px; /* Большой размер по умолчанию */
+  height: auto;
+  cursor: pointer;
+  transition: width 0.3s ease; /* Плавное изменение размера при адаптации */
+}
 
 .basket-count {
   background-color: red;
   color: white;
   border-radius: 100%;
-  padding: 2px 6px;
+  padding: 2px 6px; /* Убедитесь, что отступы не слишком большие */
+  font-size: 14px; /* Вы можете изменить размер шрифта, если нужно */
 }
 
 .burger {
@@ -250,5 +268,77 @@ nav:hover {
 
   .basket-count {
     padding: 2px 4px; /* Уменьшаем отступы для счетчика корзины */
+  }
+}
+
+@media (max-width: 375px) {
+  .header-container {
+    padding-bottom: 80px; /* Уменьшаем отступ для меньшего экрана */
+  }
+
+  .header {
+    margin-bottom: 15px; /* Уменьшаем отступ между заголовком и контентом */
+  }
+
+  .container {
+    padding: 0 15px; /* Уменьшаем отступы для контейнера */
+  }
+
+  .logo_item {
+    margin-left: 50px; /* Уменьшаем отступы для логотипа */
+    margin-right: 5px;
+  }
+
+  .basket-item {
+    padding: 5px; /* Уменьшаем отступ для корзины */
+  }
+
+  .basket-icon {
+    width: 30px; /* Уменьшаем размер иконки корзины */
+  }
+
+  .basket-count {
+    padding: 2px 4px; /* Уменьшаем отступы для счетчика корзины */
+    font-size: 12px; /* Уменьшаем размер шрифта для счетчика */
+  }
+
+  .menu .menu_item a {
+    font-size: 18px; /* Уменьшаем размер шрифта для ссылок в меню */
+  }
+}
+
+@media (max-width: 320px) {
+  .header-container {
+    padding-bottom: 60px; /* Уменьшаем отступ еще больше */
+  }
+
+  .header {
+    margin-bottom: 10px; /* Уменьшаем отступ между заголовком и контентом */
+  }
+
+  .container {
+    padding: 0 10px; /* Уменьшаем отступы для контейнера */
+  }
+
+  .logo_item {
+    margin-left: 40px; /* Убираем отступы для логотипа */
+    margin-right: 0;
+  }
+
+  .basket-item {
+    padding: 5px; /* Уменьшаем отступ для корзины */
+  }
+
+  .basket-icon {
+    width: 25px; /* Уменьшаем размер иконки корзины */
+  }
+
+  .basket-count {
+    padding: 2px 3px; /* Уменьшаем отступы для счетчика корзины */
+    font-size: 10px; /* Уменьшаем размер шрифта для счетчика */
+  }
+
+  .menu .menu_item a {
+    font-size: 16px; /* Уменьшаем размер шрифта для ссылок в меню */
   }
 }
