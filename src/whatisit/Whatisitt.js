@@ -35,10 +35,13 @@ function Whatisit() {
     formData.append("image", file);
 
     try {
-      const response = await fetch("http://localhost:5000/identify-plant", {
-        method: "POST",
-        body: formData,
-      });
+      const response = await fetch(
+        "https://bonzaishop-server.onrender.com/identify-plant",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
 
       const data = await response.json();
 
