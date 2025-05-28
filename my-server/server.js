@@ -158,23 +158,25 @@ app.post("/send-email", async (req, res) => {
     cartItems,
     totalAmount,
     deliveryDate,
-    transactionId,
+    transactionId, // если передаете номер транзакции
   } = req.body;
 
   const itemsText = cartItems
     .map((item) => `${item.name}: ${item.quantity} шт. по ${item.price} руб. `)
     .join("\n");
 
+  // Начинаем транзакцию, чтобы сначала сохранить заказ, а потом отправить письмо
   const client = await pool.connect();
 
   try {
     await client.query("BEGIN");
 
+    // Вставляем заказ в базу
     const insertQuery = `
       INSERT INTO orders
         (fullName, email, phone, address, deliveryMethod, cartItems, totalAmount, deliveryDate, orderStatus, transactionId)
       VALUES
-        (\\$1, \\$2, \\$3, \\$4, \\$5, \\$6::json, \\$7, \\$8, 'в обработке', \\$9)
+        (\$1, \$2, \$3, \$4, \$5, \$6::json, \$7, \$8, 'в обработке', \$9)
       RETURNING id
     `;
     const insertValues = [
@@ -186,14 +188,15 @@ app.post("/send-email", async (req, res) => {
       JSON.stringify(cartItems),
       totalAmount,
       deliveryDate,
-      transactionId || "",
+      transactionId || "", // если нет, можно пустую строку
     ];
 
     const result = await client.query(insertQuery, insertValues);
     const orderId = result.rows[0].id;
 
+    // Формируем письмо с номером заказа из базы
     const mailOptions = {
-      from: "fireki123321@mail.ru", 
+      from: "fireki123321@mail.ru",
       to: email,
       subject: `Подтверждение вашего заказа №${orderId}`,
       text:
@@ -206,7 +209,7 @@ app.post("/send-email", async (req, res) => {
         `${address}\n\n` +
         `Способ доставки: ${deliveryMethod}\n` +
         `Ожидаемая дата доставки: ${deliveryDate}\n\n` +
-        `Если у вас есть вопросы, не стесняйтесь обращаться к нам по телефону +7 (918) 35-10-789 или по электронной почте ${process.env.EMAIL_USER}.\n\n` +
+        `Если у вас есть вопросы, не стесняйтесь обращаться к нам по телефону +7 (918) 35-10-789 или по электронной почте fireki123321@mail.ru.\n\n` +
         `Спасибо за ваш выбор!\n` +
         `С уважением,\n` +
         `Bonzaishop.ru`,
