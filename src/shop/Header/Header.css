@@ -285,8 +285,8 @@ nav:hover {
   }
 
   .logo_item {
-    margin-left: 0px; /* Уменьшаем отступы для логотипа */
-    margin-right: 5px;
+    margin-left: 0; /* Уменьшаем отступы для логотипа */
+    margin-right: 20px;
   }
 
   .basket-item {
@@ -321,8 +321,8 @@ nav:hover {
   }
 
   .logo_item {
-    margin-left: 0px; /* Убираем отступы для логотипа */
-    margin-right: 0;
+    margin-left: 0; /* Убираем отступы для логотипа */
+    margin-right: 20px;
   }
 
   .basket-item {
