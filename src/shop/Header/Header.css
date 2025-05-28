@@ -285,7 +285,7 @@ nav:hover {
   }
 
   .logo_item {
-    margin-left: 50px; /* Уменьшаем отступы для логотипа */
+    margin-left: 0px; /* Уменьшаем отступы для логотипа */
     margin-right: 5px;
   }
 
@@ -321,7 +321,7 @@ nav:hover {
   }
 
   .logo_item {
-    margin-left: 40px; /* Убираем отступы для логотипа */
+    margin-left: 0px; /* Убираем отступы для логотипа */
     margin-right: 0;
   }
 
