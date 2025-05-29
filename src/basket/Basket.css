@@ -256,6 +256,9 @@
 }
 /* Адаптация для 425px */
 @media (max-width: 425px) {
+  .logo_item {
+    margin-left: 55px;
+  }
   .basket-container {
     padding: 15px; /* Уменьшаем внутренние отступы */
     margin-bottom: 30px; /* Уменьшаем нижний отступ */
