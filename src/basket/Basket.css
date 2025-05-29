@@ -254,8 +254,57 @@
     padding: 6px; /* Уменьшение внутренних отступов */
   }
 }
-
+/* Адаптация для 425px */
 @media (max-width: 425px) {
+  .basket-container {
+    padding: 15px; /* Уменьшаем внутренние отступы */
+    margin-bottom: 30px; /* Уменьшаем нижний отступ */
+  }
+
+  .basket-item {
+    flex-direction: column; /* Вертикальное расположение элементов */
+    align-items: center; /* Центрируем элементы */
+    padding: 10px; /* Уменьшаем внутренние отступы */
+  }
+
+  .basket-item-image {
+    width: 100%; /* Задаем ширину 100% для изображения */
+    height: auto; /* Автоматическая высота для сохранения пропорций */
+    margin-bottom: 10px; /* Отступ снизу */
+  }
+
+  .item-title,
+  .item-quantity {
+    font-size: 20px; /* Уменьшаем размер шрифта */
+  }
+
+  .checkout-button {
+    font-size: 12px; /* Уменьшение размера шрифта для маленьких экранов */
+    height: 40px; /* Уменьшаем высоту кнопки */
+    padding: 8px; /* Уменьшаем внутренние отступы */
+  }
+
+  .remove-button,
+  .clear-cart-button {
+    width: 100%; /* Ширина кнопок 100% для мобильных */
+    padding: 10px; /* Увеличение внутренних отступов для удобства */
+  }
+
+  .amount {
+    font-size: 18px; /* Уменьшаем размер текста для суммы */
+  }
+
+  .delivery-method {
+    font-size: 14px; /* Уменьшаем размер текста для способов доставки */
+  }
+
+  .delivery-method select {
+    font-size: 12px; /* Уменьшаем размер шрифта для селектора */
+    padding: 6px; /* Уменьшаем внутренние отступы */
+  }
+}
+
+@media (max-width: 375px) {
   .basket-container {
     padding: 15px; /* Уменьшаем внутренние отступы */
     margin-bottom: 30px; /* Уменьшаем нижний отступ */
