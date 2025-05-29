@@ -44,8 +44,19 @@ function Slaider() {
           src="/slaider/3.png"
           alt="Third slide"
         />
-        <h5>Исскуство бонсай</h5>
+        <h5>Искусство бонсай</h5>
         <p>Узнать больше о искусстве бонсай и его истории.</p>
+      </SwiperSlide>
+      <SwiperSlide className={styles.carouselItem}>
+        <img
+          className={`${styles.carouselImage} d-block w-100`}
+          src="/slaider/4.png"
+          alt="Third slide"
+        />
+        <h5>Что это за растение?</h5>
+        <p>
+          Загрузить фото неизвестного растения и узнать что это.
+        </p>
       </SwiperSlide>
     </Swiper>
   );
