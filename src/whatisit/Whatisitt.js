@@ -58,13 +58,20 @@ function Whatisit() {
             : []
         );
 
+        
+        const now = new Date();
+        const day = String(now.getDate()).padStart(2, "0");
+        const month = String(now.getMonth() + 1).padStart(2, "0"); // Месяцы с 0
+        const year = now.getFullYear();
+        const formattedDate = `${day},${month},${year}`;
+
         const botMessage = {
           sender: "bot",
           status,
           probability,
           plantName,
           similarImages,
-          text: `Сегодня четверг, 22 мая 2025 года, и вот результаты:\n=====================\n- Статус: ${status}\n- Вероятность, что это растение: ${probability}%\n- Имя растения: ${plantName}\n- Похожие изображения:`,
+          text: `Сегодня ${formattedDate} и вот результаты:\n=====================\n- Статус: ${status}\n- Вероятность, что это растение: ${probability}%\n- Имя растения: ${plantName}\n- Похожие изображения:`,
         };
         setMessages((prevMessages) => [...prevMessages, botMessage]);
       } else {

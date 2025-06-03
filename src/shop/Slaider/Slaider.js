@@ -1,9 +1,6 @@
-import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 import styles from "./Slaider.module.css";
-
-// Импортируем необходимые модули Swiper
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 function Slaider() {
@@ -13,8 +10,8 @@ function Slaider() {
       navigation
       pagination={{ clickable: true }}
       autoplay={{
-        delay: 5000, // задержка между переключениями в миллисекундах (3 секунды)
-        disableOnInteraction: false, // автопрокрутка не отключается при взаимодействии пользователя
+        delay: 5000, 
+        disableOnInteraction: false,
       }}
       className={styles.swiperContainer}
     >
