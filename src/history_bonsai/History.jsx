@@ -1,4 +1,3 @@
-// History.jsx
 import "./History.css";
 
 const History = () => {
@@ -7,7 +6,7 @@ const History = () => {
       <section className="history-container1">
         <div className="history-container">
           <h1>История искусства бонсая</h1>
-        
+
           <p>
             Искусство бонсая — это древняя японская традиция выращивания
             миниатюрных деревьев в контейнерах, которая насчитывает более тысячи
@@ -16,7 +15,7 @@ const History = () => {
             Китай бонсай попал как часть философии даосизма, символизируя
             гармонию человека с природой.
           </p>
-            <div className="bonsai-images-wrapper">
+          <div className="bonsai-images-wrapper">
             <img
               src="/photos-history/2.jpg"
               alt="Бонсай 1"

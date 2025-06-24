@@ -2,13 +2,12 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useCart } from "../../basket/CartContext";
 import "./SingleItem.css";
-import Footer from "../Footer/Footer";
 import usePlants from "./Items";
 
 const SingleItem = () => {
   const params = useParams();
   const navigate = useNavigate();
-  const { plants, loading, error } = usePlants(); // Предполагается, что usePlants возвращает loading и error
+  const { plants, loading, error } = usePlants();
   const item = plants.find((item) => item.slug === params.slug);
   const { addToCart } = useCart();
 
@@ -24,16 +23,16 @@ const SingleItem = () => {
 
   const handleAddToCart = () => {
     if (item) {
-      addToCart(item); // Добавляем товар в корзину, только если item существует
+      addToCart(item);
     }
   };
 
   if (loading) {
-    return <div>Загрузка...</div>; // Показываем индикатор загрузки
+    return <div>Загрузка...</div>;
   }
 
   if (error) {
-    return <div>Ошибка: {error}</div>; // Обработка ошибок
+    return <div>Ошибка: {error}</div>;
   }
 
   return (

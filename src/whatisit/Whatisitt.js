@@ -26,7 +26,7 @@ function Whatisit() {
       return;
     }
 
-    // Создаем URL для файла
+    
     const fileURL = URL.createObjectURL(file);
     const userMessage = { sender: "user", fileURL, fileName: file.name };
     setMessages((prevMessages) => [...prevMessages, userMessage]);

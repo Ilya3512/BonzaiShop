@@ -6,13 +6,13 @@ const multer = require("multer");
 const fs = require("fs");
 const axios = require("axios");
 const app = express();
-const port = process.env.PORT || 5000; // Используем переменную окружения
+const port = process.env.PORT || 5000;
 
 // Настройка CORS и парсинга JSON
 app.use(cors());
 app.use(express.json());
 
-// Подключение к базе данных PostgreSQL с использованием переменных окружения
+// Подключение к базе данных PostgreSQL
 const pool = new Pool({
   user: process.env.DB_USER || "postgres1",
   host: process.env.DB_HOST || "dpg-d0qtq42dbo4c73cdud2g-a",
@@ -158,14 +158,13 @@ app.post("/send-email", async (req, res) => {
     cartItems,
     totalAmount,
     deliveryDate,
-    transactionId, // если передаете номер транзакции
+    transactionId,
   } = req.body;
 
   const itemsText = cartItems
     .map((item) => `${item.name}: ${item.quantity} шт. по ${item.price} руб. `)
     .join("\n");
 
-  // Начинаем транзакцию, чтобы сначала сохранить заказ, а потом отправить письмо
   const client = await pool.connect();
 
   try {
@@ -188,7 +187,7 @@ app.post("/send-email", async (req, res) => {
       JSON.stringify(cartItems),
       totalAmount,
       deliveryDate,
-      transactionId || "", // если нет, можно пустую строку
+      transactionId || "",
     ];
 
     const result = await client.query(insertQuery, insertValues);

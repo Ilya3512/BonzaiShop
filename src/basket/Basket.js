@@ -10,7 +10,7 @@ function Basket() {
   const { cartItems, removeFromCart, clearCart } = useCart();
   const [isFormVisible, setIsFormVisible] = useState(false);
   const { plants, loading, error } = usePlants();
-  const [deliveryMethod, setDeliveryMethod] = useState("courier"); // Состояние для способа доставки
+  const [deliveryMethod, setDeliveryMethod] = useState("courier");
 
   const handleRemove = (slug) => {
     removeFromCart(slug);
@@ -27,7 +27,6 @@ function Basket() {
       return total + price * quantity;
     }, 0);
 
-    // Добавляем стоимость доставки
     const deliveryPrice = getDeliveryPrice(deliveryMethod);
     return subtotal + deliveryPrice;
   };
@@ -54,20 +53,19 @@ function Basket() {
   const formatCartItems = (cartItems) => {
     return cartItems.map((item) => ({
       name: item.title,
-      price: parseFloat(item.price.replace(/[^0-9.-]+/g, "")), // Преобразуем цену в число
-      quantity: item.quantity, // Количество товара
+      price: parseFloat(item.price.replace(/[^0-9.-]+/g, "")),
+      quantity: item.quantity,
     }));
   };
 
   const handleOrderSubmit = async (formData) => {
     try {
-      const formattedCartItems = formatCartItems(cartItems); // Форматируем товары
-      const totalAmountValue = calculateTotalAmount(); // Получаем итоговую сумму
+      const formattedCartItems = formatCartItems(cartItems);
+      const totalAmountValue = calculateTotalAmount();
 
-      // Вычисляем дату доставки: сегодня + 3 дня
       const deliveryDate = new Date();
       deliveryDate.setDate(deliveryDate.getDate() + 3);
-      const formattedDeliveryDate = deliveryDate.toISOString().split("T")[0]; // Форматируем дату в формате YYYY-MM-DD
+      const formattedDeliveryDate = deliveryDate.toISOString().split("T")[0];
 
       // 1. Отправляем email через backend
       const emailResponse = await fetch(
@@ -78,9 +76,9 @@ function Basket() {
           body: JSON.stringify({
             ...formData,
             cartItems: formattedCartItems,
-            totalAmount: totalAmountValue, // Добавляем сумму заказа
-            deliveryMethod: deliveryMethod, // Добавляем способ доставки
-            deliveryDate: formattedDeliveryDate, // Передаем дату доставки
+            totalAmount: totalAmountValue,
+            deliveryMethod: deliveryMethod,
+            deliveryDate: formattedDeliveryDate,
           }),
         }
       );

@@ -49,7 +49,7 @@ function sortItems(plants, sortKey) {
 }
 
 const Item = () => {
-  const { plants } = usePlants(); // Получаем массив растений из хука
+  const { plants } = usePlants();
 
   const location = useLocation();
   const query = queryString.parse(location.search);
@@ -65,7 +65,6 @@ const Item = () => {
 
   useEffect(() => {
     const filteredItems = plants.filter((item) => {
-      // Изменено условие фильтрации статуса
       if (item.status === "false" || item.status === false) return false;
 
       if (filterType) {
@@ -185,8 +184,8 @@ const Item = () => {
               <button
                 className="button-close"
                 onClick={() => {
-                  clearFilters(); // Сбросить фильтры
-                  setIsFilterVisible(false); // Закрыть панель фильтров
+                  clearFilters();
+                  setIsFilterVisible(false);
                 }}
               >
                 &times;
