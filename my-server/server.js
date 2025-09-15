@@ -15,9 +15,9 @@ app.use(express.json());
 // Подключение к базе данных PostgreSQL
 const pool = new Pool({
   user: process.env.DB_USER || "postgres1",
-  host: process.env.DB_HOST || "dpg-d0qtq42dbo4c73cdud2g-a",
-  database: process.env.DB_NAME || "plants_db_3ch8",
-  password: process.env.DB_PASSWORD || "qSZkyIC63LaSVP8rHGa5xI6LDiB5Jcvz",
+  host: process.env.DB_HOST || "dpg-d3410663jp1c73fg337g-a",
+  database: process.env.DB_NAME || "plants_db_540u",
+  password: process.env.DB_PASSWORD || "yR4r4ZqvH5X2mx6HnYC15wPRwtACT0LN",
   port: process.env.DB_PORT || 5432,
 });
 
